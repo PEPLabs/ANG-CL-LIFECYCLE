@@ -25,5 +25,7 @@ export class LifecycleComponent implements OnInit {
    * unmounted
    * Here's a hint. You can cause an alert using the method alert("component destroyed!");
    */
+  ngOnDestroy() {
+  }
 
 }
