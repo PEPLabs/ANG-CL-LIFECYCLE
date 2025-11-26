@@ -24,15 +24,13 @@ describe('LifecycleComponent', () => {
   });
 
   it('should update time when component is mounted', () => {
-    // Manually trigger ngOnInit
+    const before = Date.now();
     fixture.detectChanges();
+    const after = Date.now();
 
-    // Get the current time in milliseconds
-    const currentTime = Date.now();
-
-    // Assert that the component's time variable is set to the current time
-    expect(component.time).toBe(currentTime);
-    
+    expect(component.time).toBeGreaterThanOrEqual(before);
+    expect(component.time).toBeLessThanOrEqual(after);
+      
   })
 
   it('should trigger alert when component is unmounted', () => {
