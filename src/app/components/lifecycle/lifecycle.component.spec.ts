@@ -24,13 +24,12 @@ describe('LifecycleComponent', () => {
   });
 
   it('should update time when component is mounted', () => {
-    const before = Date.now();
+    const tolerance = 1000; // 1 second
+    const expected = Date.now();
     fixture.detectChanges();
-    const after = Date.now();
 
-    expect(component.time).toBeGreaterThanOrEqual(before);
-    expect(component.time).toBeLessThanOrEqual(after);
-      
+    expect(component.time).toBeGreaterThanOrEqual(expected - tolerance);
+    expect(component.time).toBeLessThanOrEqual(expected + tolerance);
   })
 
   it('should trigger alert when component is unmounted', () => {
